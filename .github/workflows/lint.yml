@@ -1,21 +1,20 @@
-name: Analisis de calidad del codigo Python
+name: Analisis de calidad con pylint
 
 on:
-  push:
   pull_request:
 
 jobs:
-  pylint:
+  lint:
     runs-on: ubuntu-latest
 
     permissions:
       security-events: write
 
     steps:
-      - name: Descargar el codigo
+      - name: Descargar código
         uses: actions/checkout@v4
 
-      - name: Analizar codigo con pylint
+      - name: Ejecutar pylint
         uses: advanced-security/python-lint-code-scanning-action@v1
         with:
           linter: pylint
